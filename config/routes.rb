@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "static_pages/home"
   get "user_sessions/new"
   get "user_sessions/create"
   get "user_sessions/destroy"
