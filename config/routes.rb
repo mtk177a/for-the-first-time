@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   post "login", to: "user_sessions#create"
   delete "logout", to: "user_sessions#destroy", as: "logout"
 
+  resources :records, only: [ :index, :new, :create, :edit, :update, :destroy ]
+
   # アプリケーションのヘルスチェック
   get "up", to: "rails/health#show", as: :rails_health_check
 
