@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  get "records/new"
-  get "records/create"
-  get "records/edit"
-  get "records/update"
-  get "records/destroy"
-  get "records/index"
   # ルートパス
   root "static_pages#home"
 
@@ -16,6 +10,8 @@ Rails.application.routes.draw do
   get "login", to: "user_sessions#new", as: "login"
   post "login", to: "user_sessions#create"
   delete "logout", to: "user_sessions#destroy", as: "logout"
+
+  resources :records, only: [ :index, :new, :create, :edit, :update, :destroy ]
 
   # アプリケーションのヘルスチェック
   get "up", to: "rails/health#show", as: :rails_health_check
