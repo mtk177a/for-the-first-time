@@ -3,13 +3,13 @@ Rails.application.routes.draw do
   root "static_pages#home"
 
   # ユーザー登録
-  get 'signup', to: 'users#new', as: 'signup'
-  post 'users', to: 'users#create'
+  get "signup", to: "users#new", as: "signup"
+  post "users", to: "users#create"
 
   # ログイン・ログアウト
-  get 'login', to: 'user_sessions#new', as: 'login'
-  post 'login', to: 'user_sessions#create'
-  delete 'logout', to: 'user_sessions#destroy', as: 'logout'
+  get "login", to: "user_sessions#new", as: "login"
+  post "login", to: "user_sessions#create"
+  delete "logout", to: "user_sessions#destroy", as: "logout"
 
   # アプリケーションのヘルスチェック
   get "up", to: "rails/health#show", as: :rails_health_check

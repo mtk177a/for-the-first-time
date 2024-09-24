@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: [:new, :create]
+  skip_before_action :require_login, only: [ :new, :create ]
 
   def new
     @user = User.new
@@ -10,9 +10,9 @@ class UsersController < ApplicationController
 
     if @user.save
       auto_login(@user)
-      redirect_to root_path, notice: '登録が完了しました。ログインしてください。'
+      redirect_to root_path, notice: "登録が完了しました。ログインしてください。"
     else
-      flash.now[:error] = '登録に失敗しました。'
+      flash.now[:error] = "登録に失敗しました。"
       render :new, status: :unprocessable_entity
     end
   end
