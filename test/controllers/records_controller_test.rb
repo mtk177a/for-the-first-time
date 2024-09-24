@@ -4,7 +4,7 @@ class RecordsControllerTest < ActionDispatch::IntegrationTest
   # setup メソッドで事前にログインを行う
   setup do
     @user = users(:one) # fixtureのユーザーを使用する
-    post login_path, params: { email: @user.email, password: 'password' } # 適切なログイン情報を入力
+    post login_path, params: { email: @user.email, password: "password" } # 適切なログイン情報を入力
   end
 
   test "should get index" do
