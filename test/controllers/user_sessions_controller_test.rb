@@ -11,7 +11,7 @@ class UserSessionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create session" do
-    post login_path, params: { email: @user.email, password: 'password' }
+    post login_path, params: { email: @user.email, password: "password" }
     assert_response :redirect
   end
 
