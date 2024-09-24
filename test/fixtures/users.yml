@@ -6,10 +6,10 @@
 #
 one:
   email: "user1@example.com"
-  password_digest: "$2a$12$34rxDezgnyQcUClBAfmN.u0Xrp6WyEeio6FC53b/MndZVPmUsWktO"
+  crypted_password: "$2a$12$34rxDezgnyQcUClBAfmN.u0Xrp6WyEeio6FC53b/MndZVPmUsWktO"
 # column: value
 #
 two:
   email: "user2@example.com"
-  password_digest: "$2a$12$34rxDezgnyQcUClBAfmN.u0Xrp6WyEeio6FC53b/MndZVPmUsWktO"
+  crypted_password: "$2a$12$34rxDezgnyQcUClBAfmN.u0Xrp6WyEeio6FC53b/MndZVPmUsWktO"
 # column: value
