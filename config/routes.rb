@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get "records/new"
+  get "records/create"
+  get "records/edit"
+  get "records/update"
+  get "records/destroy"
+  get "records/index"
   # ルートパス
   root "static_pages#home"
 
