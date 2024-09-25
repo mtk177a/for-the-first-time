@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "public_records/index"
   # ルートパス
   root "static_pages#home"
 
