@@ -1,13 +1,21 @@
-<h1>わたしのはじめてリスト</h1>
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+  <div class="mx-auto w-full">
+    <h1 class="my-10 text-center text-2xl font-bold">わたしのはじめて</h1>
 
-<% @records.each do |record| %>
-  <div>
-    <h2><%= record.title %></h2>
-    <p><%= record.memo %></p>
-    <p><%= record.date.strftime('%Y-%m-%d') %></p>
-    <%= link_to '編集', edit_record_path(record) %> |
-    <%= link_to '削除', record_path(record), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' } %>
+    <%= link_to '新たにはじめてを刻む', new_record_path, class: 'btn btn-primary mx-auto my-10' %>
+
+    <% @records.each do |record| %>
+      <div class="card bg-cyan-50 w-full border mx-auto">
+        <div class="card-body">
+          <h2 class="card-title"><%= record.title %></h2>
+          <p><%= record.memo %></p>
+          <p><%= record.date.strftime('%Y-%m-%d') %></p>
+          <div class="card-actions justify-end">
+            <%= link_to '編集', edit_record_path(record), class: 'btn btn-info btn-outline btn-sm' %>
+            <%= link_to '削除', record_path(record), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: 'btn btn-error btn-outline btn-sm' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
-
-<%= link_to '新たにはじめてを刻む', new_record_path %>
+</div>
