@@ -1,2 +1,9 @@
-<h1>PublicRecords#index</h1>
-<p>Find me in app/views/public_records/index.html.erb</p>
+<h1>みんなのはじめて</h1>
+
+<% @public_records.each do |record| %>
+  <div>
+    <h2><%= record.title %></h2>
+    <p><%= record.date %></p>
+    <p>投稿者: <%= record.user.name %></p>
+  </div>
+<% end %>
