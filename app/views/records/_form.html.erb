@@ -10,21 +10,23 @@
 
 <%= form_with model: @record, local: true do |f| %>
   <div>
-    <%= f.label :title, 'タイトル' %><br>
-    <%= f.text_field :title %>
+    <%= f.label :title, 'タイトル', class: 'my-2' %><br>
+    <%= f.text_field :title, class: 'my-2 input input-bordered w-full' %>
   </div>
 
   <div>
-    <%= f.label :memo, 'メモ' %><br>
-    <%= f.text_area :memo %>
+    <%= f.label :memo, 'メモ', class: 'my-2' %><br>
+    <%= f.text_area :memo, class: 'my-2 textarea textarea-bordered w-full' %>
   </div>
 
   <div>
-    <%= f.label :date, '日付' %><br>
-    <%= f.date_field :date %>
+    <%= f.label :date, '日付', class: 'my-2' %><br>
+    <div class="flex space-x-2 mx-2">
+      <%= f.date_select :date, { order: [:year, :month, :day] }, { class: "select select-bordered w-full max-w-xs" } %>
+    </div>
   </div>
 
   <div>
-    <%= f.submit '記録する' %>
+    <%= f.submit '記録する', class: 'btn btn-primary mt-10 mb-5 w-full' %>
   </div>
 <% end %>
