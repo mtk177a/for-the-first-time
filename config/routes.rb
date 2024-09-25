@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get "public_records/index"
   # ルートパス
   root "static_pages#home"
 
@@ -13,6 +12,8 @@ Rails.application.routes.draw do
   delete "logout", to: "user_sessions#destroy", as: "logout"
 
   resources :records, only: [ :index, :new, :create, :edit, :update, :destroy ]
+
+  resources :public_records, only: [ :index ]
 
   # アプリケーションのヘルスチェック
   get "up", to: "rails/health#show", as: :rails_health_check
