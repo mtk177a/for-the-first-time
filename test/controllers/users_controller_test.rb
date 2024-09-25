@@ -7,7 +7,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create user" do
-    post users_path, params: { user: { email: "test@example.com", password: "password", password_confirmation: "password" } }
+    post users_path, params: { user: { name: "Test User", email: "test@example.com", password: "password", password_confirmation: "password" } }
     assert_response :redirect  # 正常に作成されたらリダイレクト
     follow_redirect!
     assert_response :success  # リダイレクト後のページが正常に表示されるか確認

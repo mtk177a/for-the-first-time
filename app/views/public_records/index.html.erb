@@ -1,0 +1,9 @@
+<h1>みんなのはじめて</h1>
+
+<% @public_records.each do |record| %>
+  <div>
+    <h2><%= record.title %></h2>
+    <p><%= record.date %></p>
+    <p>投稿者: <%= record.user.name %></p>
+  </div>
+<% end %>
