@@ -3,14 +3,7 @@
     <h1 class="my-10 text-center text-2xl font-bold">みんなのはじめて</h1>
 
     <% @public_records.each do |record| %>
-      <div class="card bg-cyan-50 w-full border mx-auto">
-        <div class="card-body">
-          <p><%= record.user.name %></p>
-          <h2 class="card-title"><%= record.title %></h2>
-          <p><%= record.memo %></p>
-          <p><%= record.date.strftime('%Y-%m-%d') %></p>
-        </div>
-      </div>
+      <%= render 'shared/record_card', record: record %>
     <% end %>
   </div>
 </div>

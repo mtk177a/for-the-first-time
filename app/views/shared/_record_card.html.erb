@@ -1,0 +1,16 @@
+<div class="card bg-fuchsia-50 w-full border mx-auto my-5">
+  <div class="card-body">
+    <h2 class="card-title"><%= record.title %></h2>
+
+    <p><%= record.memo %></p>
+
+    <p><%= record.date.strftime('%Y-%m-%d') %></p>
+
+    <% if logged_in? && current_user == record.user %> <!-- ユーザーが投稿の所有者の場合にのみ表示 -->
+      <div class="card-actions justify-end">
+        <%= link_to '編集', edit_record_path(record), class: 'btn btn-info btn-outline btn-sm' %>
+        <%= link_to '削除', record_path(record), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: 'btn btn-error btn-outline btn-sm' %>
+      </div>
+    <% end %>
+  </div>
+</div>
