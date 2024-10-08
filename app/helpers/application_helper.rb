@@ -28,4 +28,8 @@ module ApplicationHelper
       }
     }
   end
+
+  def tweet_text(record)
+    message = "生まれてはじめて「#{record.title}」 \n#ForTheFirstTime\n"
+  end
 end
