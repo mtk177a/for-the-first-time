@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "profiles/show"
+  get "profiles/edit"
   # ルートパス
   root "static_pages#home"
 
