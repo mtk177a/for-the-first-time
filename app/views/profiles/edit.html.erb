@@ -1,2 +1,33 @@
-<h1>Profiles#edit</h1>
-<p>Find me in app/views/profiles/edit.html.erb</p>
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+  <div class="mx-auto w-full">
+    <h1 class="my-10 text-center text-2xl font-bold">プロフィール編集</h1>
+
+    <%= form_with model: @profile, local: true, url: profile_path do |f| %>
+      <div>
+        <%= f.label :name, 'ユーザー名', class: 'my-2' %><br>
+        <%= f.text_field :name, class: 'my-2 input input-bordered w-full' %>
+      </div>
+
+      <div>
+        <%= f.label :email, 'メールアドレス', class: 'my-2' %><br>
+        <%= f.text_field :email, class: 'my-2 input input-bordered w-full' %>
+      </div>
+
+      <div>
+        <%= f.label :password, '新しいパスワード', class: 'my-2' %><br>
+        <%= f.password_field :password, class: 'my-2 input input-bordered w-full' %>
+      </div>
+
+      <div>
+        <%= f.label :password_confirmation, 'パスワード確認', class: 'my-2' %><br>
+        <%= f.password_field :password_confirmation, class: 'my-2 input input-bordered w-full' %>
+      </div>
+
+      <div class="my-4">
+        <%= f.submit '更新', class: 'btn btn-primary mt-5 mb-2 w-full' %>
+      </div>
+    <% end %>
+
+    <%= link_to 'プロフィールへ戻る', profile_path, class: 'btn btn-outline mb-5 w-full' %>
+  </div>
+</div>
