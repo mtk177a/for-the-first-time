@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   resources :public_records, only: [ :index ]
 
+  resources :profiles, only: [ :show, :edit, :update ]
+
   # アプリケーションのヘルスチェック
   get "up", to: "rails/health#show", as: :rails_health_check
 
