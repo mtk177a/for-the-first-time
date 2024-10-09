@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get "profiles/show"
-  get "profiles/edit"
   # ルートパス
   root "static_pages#home"
 
@@ -16,6 +14,8 @@ Rails.application.routes.draw do
   resources :records, only: [ :index, :new, :create, :edit, :update, :destroy ]
 
   resources :public_records, only: [ :index ]
+
+  resources :profiles, only: [ :show, :edit, :update ]
 
   # アプリケーションのヘルスチェック
   get "up", to: "rails/health#show", as: :rails_health_check
