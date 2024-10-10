@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get "likes/create"
-  get "likes/destroy"
   # ルートパス
   root "static_pages#home"
 
@@ -13,11 +11,13 @@ Rails.application.routes.draw do
   post "login", to: "user_sessions#create"
   delete "logout", to: "user_sessions#destroy", as: "logout"
 
-  resources :records, only: [ :index, :new, :create, :edit, :update, :destroy ]
+  resources :profiles, only: [ :show, :edit, :update ]
 
   resources :public_records, only: [ :index ]
 
-  resources :profiles, only: [ :show, :edit, :update ]
+  resources :records, only: [ :index, :new, :create, :edit, :update, :destroy ] do
+    resource :like, only: [ :create, :destroy ]
+  end
 
   # アプリケーションのヘルスチェック
   get "up", to: "rails/health#show", as: :rails_health_check
