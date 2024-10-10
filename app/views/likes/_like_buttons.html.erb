@@ -1,0 +1,5 @@
+<% if current_user.likes.exists?(record: record) %>
+  <%= render 'likes/liked_button', record: record %>
+<% else %>
+  <%= render 'likes/unliked_button', record: record %>
+<% end %>
