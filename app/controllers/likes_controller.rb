@@ -3,6 +3,7 @@ class LikesController < ApplicationController
 
   def create
     current_user.likes.create!(record: @record)
+    @record.reload # いいねカウントを最新の状態に更新
     respond_to do |format|
       format.turbo_stream
       format.html { redirect_to record_path(@record) }
@@ -12,6 +13,7 @@ class LikesController < ApplicationController
   def destroy
     like = current_user.likes.find_by(record: @record)
     like&.destroy
+    @record.reload # いいねカウントを最新の状態に更新
     respond_to do |format|
       format.turbo_stream
       format.html { redirect_to record_path(@record) }
