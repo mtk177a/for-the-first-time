@@ -1,5 +1,9 @@
-<% if current_user.likes.exists?(record: record) %>
-  <%= render 'likes/liked_button', record: record %>
+<% if logged_in? %>
+  <% if current_user.likes.exists?(record: record) %>
+    <%= render 'likes/liked_button', record: record %>
+  <% else %>
+    <%= render 'likes/unliked_button', record: record %>
+  <% end %>
 <% else %>
-  <%= render 'likes/unliked_button', record: record %>
+  <%= render 'likes/disabled_button', record: record %>
 <% end %>
