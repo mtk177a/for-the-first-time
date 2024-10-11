@@ -1,0 +1,21 @@
+<!-- いいね数を表示し、クリックでモーダルを開く -->
+<div class="like-count">
+  <button class="text-pink-500" onclick="like_modal_<%= record.id %>.showModal()">
+    <%= record.likes_count %>
+  </button>
+</div>
+
+<!-- モーダルの構造 -->
+<dialog id="like_modal_<%= record.id %>" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">いいねしたユーザー</h3>
+    <ul>
+      <% record.likes.includes(:user).each do |like| %>
+        <li class="py-2"><%= like.user.name %></li>
+      <% end %>
+    </ul>
+  </div>
+  <form method="dialog" class="modal-backdrop"> <!-- 背景をクリックで閉じる -->
+    <button>close</button>
+  </form>
+</dialog>
