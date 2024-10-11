@@ -20,7 +20,7 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
 
   test "should destroy like" do
     like = @user.likes.create(record: @record) # テスト用の「いいね」を作成
-    assert_difference('Like.count', -1) do
+    assert_difference("Like.count", -1) do
       delete record_like_path(@record), params: { id: like.id }, as: :turbo_stream
     end
     assert_response :success
@@ -29,6 +29,6 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
   private
 
   def login_as(user)
-    post login_path, params: { email: user.email, password: 'password' }
+    post login_path, params: { email: user.email, password: "password" }
   end
 end

@@ -17,6 +17,6 @@ class PublicRecordsControllerTest < ActionDispatch::IntegrationTest
   private
 
   def login_as(user)
-    post login_path, params: { email: user.email, password: 'password' } # 適切なパスワードを設定
+    post login_path, params: { email: user.email, password: "password" } # 適切なパスワードを設定
   end
 end
