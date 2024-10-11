@@ -2,8 +2,8 @@
 
 one:
   user: one
-  record: one
+  record: two
 
 two:
   user: two
-  record: two
+  record: one
