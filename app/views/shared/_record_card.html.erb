@@ -10,9 +10,14 @@
     <p><%= record.date.strftime('%Y-%m-%d') %></p>
 
     <div class="card-actions justify-end">
-      <%= turbo_frame_tag "like_button_record_#{record.id}" do %>
-        <%= render 'likes/like_buttons', record: record %>
-      <% end %>
+      <div class="flex item-center m-1">
+        <%= turbo_frame_tag "like_button_record_#{record.id}" do %>
+          <%= render 'likes/like_buttons', record: record %>
+        <% end %>
+        <%= turbo_frame_tag "like_count_record_#{record.id}" do %>
+          <%= render 'likes/like_count', record: record %>
+        <% end %>
+      </div>
 
       <% if logged_in? && current_user == record.user %> <!-- ユーザーが投稿の所有者の場合にのみ表示 -->
         <%= link_to '編集', edit_record_path(record), class: 'btn btn-info btn-outline btn-sm' %>
