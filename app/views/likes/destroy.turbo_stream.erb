@@ -1,3 +1,9 @@
+<!-- いいねボタンを更新 -->
 <%= turbo_stream.update "like_button_record_#{@record.id}" do %>
   <%= render partial: 'likes/unliked_button', locals: { record: @record } %>
+<% end %>
+
+<!-- いいね数を更新 -->
+<%= turbo_stream.update "like_count_record_#{@record.id}" do %>
+  <%= render partial: 'likes/like_count', locals: { record: @record } %>
 <% end %>
